@@ -7,18 +7,26 @@
 </head>
 <body>
     <h1>Unit Converter</h1>
-    <h2 id="unitytype">Celsius to Fairenheit</h2>
+    <br>
     <label for="unitydescribe">Type here: </label>
     <input type="number" id="rawunity" name="rawunity" required>
+    <select name="unityOptions" id="unityOptions">
+        <option value="celsius">Celsius</option>
+        <option value="fairenheit">Fairenheit</option>
+        <option value="kelvin">Kelvin</option> 
+    </select>
     <br>
     <br>
-    <button type="submit" id="celsius">Celsius</button>
-    <button type="submit" id="fairenheit">Fairenheit</button>
-    <button type="submit" id="kelvin">Kelvin</button>
+    <button type="submit" id="convertBTN">Convert!</button>
     <br>
     <br>
     <label for="convertedunity">Result:</label>
     <input id="convertedunity" name="convertedunity" readonly>
+    <select name="unityOptionsToConvert" id="unityOptionsToConvert">
+        <option value="celsius">Celsius</option>
+        <option value="fairenheit">Fairenheit</option>
+        <option value="kelvin">Kelvin</option> 
+    </select>
     <br>
     <script src="script.js"></script>
 </body>       
