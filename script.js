@@ -2,6 +2,30 @@
 const convertButton = document.getElementById('convertBTN');
 const convertedUnity = document.getElementById('convertedUnity');
 
+function convertCelsiusToFairenheit(celsius){
+    return (celsius*1.8)+32;
+}
+
+function convertFairenheitToCelsius(fairenheit){
+    return (fairenheit-32)/1.8;
+}
+
+function convertCelsiusToKelvin(celsius){
+    return celsius+273.15;
+}
+
+function convertFairenheitToKelvin(fairenheit){
+    return (((fairenheit)+459.67)*5)/9;
+}
+
+function convertKelvinToFairenheit(kelvin){
+    return ((kelvin-273.15)*1.8)+32;
+}
+
+function convertKelvinToCelsius(kelvin){
+    return kelvin-273.15;
+}
+
 convertButton.addEventListener('click', () =>{
     const rawOption = document.getElementById('unityOptions');
     const convertOption = document.getElementById('unityOptionsToConvert');
@@ -16,32 +40,32 @@ convertButton.addEventListener('click', () =>{
 
     if(rawUnity == 'celsius' && convertUnity == 'fairenheit'){
         let typedunity = Number(document.getElementById('rawunity').value);
-        let convert  = (typedunity*1.8)+32;
+        let convert  = convertCelsiusToFairenheit(typedunity);
         convertedUnity.value = convert.toFixed(1);
     } 
     if(rawUnity == 'fairenheit' && convertUnity == 'celsius'){
         let typedunity = Number(document.getElementById('rawunity').value);
-        let convert  = (typedunity-32)/1.8;
+        let convert  = convertFairenheitToCelsius(typedunity);
         convertedUnity.value = convert.toFixed(1);
     } 
     if(rawUnity == 'celsius' && convertUnity == 'kelvin'){
         let typedunity = Number(document.getElementById('rawunity').value);
-        let convert  = typedunity+273.15;
+        let convert  = convertCelsiusToKelvin(typedunity);
         convertedUnity.value = convert.toFixed(2);
     } 
     if(rawUnity == 'fairenheit' && convertUnity == 'kelvin'){
         let typedunity = Number(document.getElementById('rawunity').value);
-        let convert  = (((typedunity)+459.67)*5)/9;
+        let convert  = convertFairenheitToKelvin(typedunity);
         convertedUnity.value = convert.toFixed(2);
     }
     if(rawUnity == 'kelvin' && convertUnity == 'fairenheit'){
         let typedunity = Number(document.getElementById('rawunity').value);
-        let convert  = ((typedunity-273.15)*1.8)+32;
+        let convert  = convertKelvinToFairenheit(typedunity);
         convertedUnity.value = convert.toFixed(2);
     }
     if(rawUnity == 'kelvin' && convertUnity == 'celsius'){
         let typedunity = Number(document.getElementById('rawunity').value);
-        let convert  = typedunity-273.15;
+        let convert  = convertKelvinToCelsius(typedunity);
         convertedUnity.value = convert.toFixed(2);
     } 
 
