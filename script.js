@@ -32,6 +32,7 @@ convertButton.addEventListener('click', () =>{
 
     const rawUnity = rawOption.value;
     const convertUnity = convertOption.value;
+    const typedunity = Number(document.getElementById('rawunity').value);
 
     if (rawUnity === convertUnity) {
         alert('Please select a diferent type of unity!!!')
@@ -39,32 +40,26 @@ convertButton.addEventListener('click', () =>{
     }
 
     if(rawUnity == 'celsius' && convertUnity == 'fairenheit'){
-        let typedunity = Number(document.getElementById('rawunity').value);
         let convert  = convertCelsiusToFairenheit(typedunity);
         convertedUnity.value = convert.toFixed(1);
     } 
     if(rawUnity == 'fairenheit' && convertUnity == 'celsius'){
-        let typedunity = Number(document.getElementById('rawunity').value);
         let convert  = convertFairenheitToCelsius(typedunity);
         convertedUnity.value = convert.toFixed(1);
     } 
     if(rawUnity == 'celsius' && convertUnity == 'kelvin'){
-        let typedunity = Number(document.getElementById('rawunity').value);
         let convert  = convertCelsiusToKelvin(typedunity);
         convertedUnity.value = convert.toFixed(2);
     } 
     if(rawUnity == 'fairenheit' && convertUnity == 'kelvin'){
-        let typedunity = Number(document.getElementById('rawunity').value);
         let convert  = convertFairenheitToKelvin(typedunity);
         convertedUnity.value = convert.toFixed(2);
     }
     if(rawUnity == 'kelvin' && convertUnity == 'fairenheit'){
-        let typedunity = Number(document.getElementById('rawunity').value);
         let convert  = convertKelvinToFairenheit(typedunity);
         convertedUnity.value = convert.toFixed(2);
     }
     if(rawUnity == 'kelvin' && convertUnity == 'celsius'){
-        let typedunity = Number(document.getElementById('rawunity').value);
         let convert  = convertKelvinToCelsius(typedunity);
         convertedUnity.value = convert.toFixed(2);
     } 
