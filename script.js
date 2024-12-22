@@ -26,6 +26,21 @@ function convertKelvinToCelsius(kelvin){
     return kelvin-273.15;
 }
 
+const unityConversionTable = {
+    celsius: {
+        fairenheit: convertCelsiusToFairenheit,
+        kelvin: convertCelsiusToKelvin
+    },
+    fairenheit: {
+        celsius: convertFairenheitToCelsius,
+        kelvin: convertFairenheitToKelvin
+    },
+    kelvin: {
+        fairenheit: convertKelvinToFairenheit,
+        celsius: convertKelvinToCelsius
+    }
+}
+
 convertButton.addEventListener('click', () =>{
     const rawOption = document.getElementById('unityOptions');
     const convertOption = document.getElementById('unityOptionsToConvert');
@@ -38,45 +53,8 @@ convertButton.addEventListener('click', () =>{
         alert('Please select a diferent type of unity!!!')
         return
     }
-    
-    let convert;
-    switch (rawUnity) {
-        case 'celsius':
-            switch (convertUnity) {
-                case 'fairenheit':
-                    convert = convertCelsiusToFairenheit(typedunity);
-                    convertedUnity.value = convert.toFixed(1);
-                    break;
-                case 'kelvin':
-                    convert = convertCelsiusToKelvin(typedunity);
-                    convertedUnity.value = convert.toFixed(2);
-                    break;
-            }
-            break;
-        case 'fairenheit':
-            switch (convertUnity) {
-                case 'celsius':
-                    convert = convertFairenheitToCelsius(typedunity);
-                    convertedUnity.value = convert.toFixed(1);
-                    break;
-                case 'kelvin':
-                    convert = convertFairenheitToKelvin(typedunity);
-                    convertedUnity.value = convert.toFixed(2);
-                    break;
-            }
-            break;
-        case 'kelvin':
-            switch (convertUnity) {
-                case 'fairenheit':
-                    convert = convertKelvinToFairenheit(typedunity);
-                    convertedUnity.value = convert.toFixed(2);
-                    break;
-                case 'celsius':
-                    convert = convertKelvinToCelsius(typedunity);
-                    convertedUnity.value = convert.toFixed(2);
-                    break;
-            }
-            break;
-    }
+    const convertFunction = unityConversionTable[rawUnity][convertUnity];
+    const convertedValue = convertFunction(typedunity);
+    convertedUnity.value = convertedValue.toFixed(2);
 
 })
